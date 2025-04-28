@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 const appId = process.env.APP_ID;
 const appSecret = process.env.APP_SECRET;
-const redirectUri = 'https://yourdomain.com/auth/facebook/callback';
+const redirectUri = 'https://callbackurl-facebook.vercel.app/auth/facebook/callback';
 
 app.get('/auth/facebook/callback', async (req, res) => {
   const { code } = req.query;
