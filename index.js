@@ -2,6 +2,12 @@ const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
 
+// https://www.facebook.com/v22.0/dialog/oauth?
+//   client_id=YOUR_APP_ID
+//   &redirect_uri=YOUR_REDIRECT_URI
+//   &scope=email,public_profile
+
+
 const app = express();
 const appId = process.env.APP_ID;
 const appSecret = process.env.APP_SECRET;
@@ -34,7 +40,7 @@ app.get('/auth/facebook/callback', async (req, res) => {
     const userData = userResponse.data;
     console.log(userData);
 
-    res.json({ user: userData });
+    res.json({ user: userData, accessToken: accessToken });
   } catch (error) {
     console.error('Error exchanging code:', error);
     res.status(500).send('Authentication failed');
