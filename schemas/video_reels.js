@@ -9,5 +9,5 @@ const schema = new Schema({
     id: { type: String },
 }, { timestamps: true })
 
-const reel = mongoose.model("reel_data", schema)
+const reel = mongoose.model("reel", schema)
 module.exports = reel;
