@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const app = express();
 const callbackRoute = require("./routes/callback");
 const reelRoute = require("./routes/video_reels");
+app.use(express.json());
 
 mongoose.connect(process.env.CONNECTION_STRING, { dbName: "hamza" })
     .then(() => {
